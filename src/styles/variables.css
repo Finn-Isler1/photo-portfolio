@@ -1,6 +1,7 @@
 :root {
   --background-color: rgb(255, 255, 255);
-  --text-color: black;
+  --primary-text-color: rgb(26, 26, 26);
+  --secondary-text-color: rgb(87, 87, 87);
 
   --button-hover: rgb(239, 239, 239);
 }
