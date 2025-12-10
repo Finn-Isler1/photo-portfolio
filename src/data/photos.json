@@ -1,86 +1,210 @@
 [
   {
     "id": 1,
-    "name": "cell tower",
+    "name": "Cell Tower",
     "caption": "image1",
-    "path": "a1.jpg",
-    "alt": "image1"
+    "path": "blue-orange-streetlight.jpg",
+    "alt": "image1",
+    "tags": ["architecture", "urban"]
   },
   {
     "id": 2,
-    "name": "image2",
+    "name": "Bridget in Low Light",
     "caption": "image1",
-    "path": "b&w children at play.jpg",
-    "alt": "image1"
+    "path": "bridget-lowlight.jpg",
+    "alt": "image1",
+    "tags": ["portrait"]
   },
   {
     "id": 3,
     "name": "image21",
     "caption": "image1",
-    "path": "barbie pose-2.JPG",
-    "alt": "image1"
+    "path": "bridget-mountain2.jpg",
+    "alt": "image1",
+    "tags": ["landscape", "portrait"]
   },
   {
     "id": 4,
     "name": "image21",
     "caption": "image1",
-    "path": "barbie pose-3.JPG",
-    "alt": "image1"
+    "path": "bridget-mountains.jpg",
+    "alt": "image1",
+    "tags": ["landscape", "portrait"]
   },
   {
     "id": 5,
     "name": "image21",
     "caption": "image1",
-    "path": "barbie pose-4.JPG",
-    "alt": "image1"
+    "path": "dillon1.JPG",
+    "alt": "image1",
+    "tags": ["portrait"]
   },
   {
     "id": 6,
     "name": "image21",
     "caption": "image1",
-    "path": "barbie pose-5.JPG",
-    "alt": "image1"
+    "path": "finn-belt.jpg",
+    "alt": "image1",
+    "tags": ["portrait"]
   },
   {
     "id": 7,
     "name": "image21",
     "caption": "image1",
-    "path": "barbie pose-6.JPG",
-    "alt": "image1"
+    "path": "gutter.jpg",
+    "alt": "image1",
+    "tags": ["architecture", "urban"]
   },
   {
     "id": 8,
     "name": "image21",
     "caption": "image1",
-    "path": "barbie pose-7.JPG",
-    "alt": "image1"
+    "path": "horshoe-barn.JPG",
+    "alt": "image1",
+    "tags": ["landscape", "architecture"]
   },
   {
     "id": 9,
     "name": "image21",
     "caption": "image1",
-    "path": "blue and orange lamp 2.jpg",
-    "alt": "image1"
+    "path": "house-on-water.jpg",
+    "alt": "image1",
+    "tags": ["landscape", "nature"]
   },
   {
     "id": 10,
     "name": "image21",
     "caption": "image1",
-    "path": "bridget in low light.JPG",
-    "alt": "image1"
+    "path": "lamp.JPG",
+    "alt": "image1",
+    "tags": ["architecture", "urban"]
   },
   {
     "id": 11,
     "name": "image21",
     "caption": "image1",
-    "path": "bridget_face-1.jpg",
-    "alt": "image1"
+    "path": "little-shopping-cart.jpg",
+    "alt": "image1",
+    "tags": ["street", "urban"]
   },
   {
     "id": 12,
     "name": "image21",
     "caption": "image1",
-    "path": "f.JPG",
-    "alt": "image1"
+    "path": "midas-fashion1.jpg",
+    "alt": "image1",
+    "tags": ["fashion", "portrait"]
+  },
+  {
+    "id": 13,
+    "name": "image21",
+    "caption": "image1",
+    "path": "midas-fashion2.jpg",
+    "alt": "image1",
+    "tags": ["fashion", "portrait"]
+  },
+  {
+    "id": 14,
+    "name": "image21",
+    "caption": "image1",
+    "path": "midas-fashion3.jpg",
+    "alt": "image1",
+    "tags": ["fashion", "portrait"]
+  },
+  {
+    "id": 15,
+    "name": "image21",
+    "caption": "image1",
+    "path": "midas-fashion4.jpg",
+    "alt": "image1",
+    "tags": ["fashion", "portrait"]
+  },
+  {
+    "id": 16,
+    "name": "image21",
+    "caption": "image1",
+    "path": "midas-fashion5.jpg",
+    "alt": "image1",
+    "tags": ["fashion", "portrait"]
+  },
+  {
+    "id": 17,
+    "name": "image21",
+    "caption": "image1",
+    "path": "midas-fashion6.jpg",
+    "alt": "image1",
+    "tags": ["fashion", "portrait"]
+  },
+  {
+    "id": 18,
+    "name": "image21",
+    "caption": "image1",
+    "path": "old-wf.jpg",
+    "alt": "image1",
+    "tags": ["landscape"]
+  },
+  {
+    "id": 19,
+    "name": "image21",
+    "caption": "image1",
+    "path": "phone-tower.jpg",
+    "alt": "image1",
+    "tags": ["architecture", "urban"]
+  },
+  {
+    "id": 20,
+    "name": "image21",
+    "caption": "image1",
+    "path": "pond-dam.jpg",
+    "alt": "image1",
+    "tags": ["landscape", "nature"]
+  },
+  {
+    "id": 21,
+    "name": "image21",
+    "caption": "image1",
+    "path": "purple-chairs.jpg",
+    "alt": "image1",
+    "tags": ["street", "urban"]
+  },
+  {
+    "id": 22,
+    "name": "image21",
+    "caption": "image1",
+    "path": "raleigh-1.jpg",
+    "alt": "image1",
+    "tags": ["landscape", "urban"]
+  },
+  {
+    "id": 23,
+    "name": "image21",
+    "caption": "image1",
+    "path": "raleigh-2.jpg",
+    "alt": "image1",
+    "tags": ["landscape", "urban"]
+  },
+  {
+    "id": 24,
+    "name": "image21",
+    "caption": "image1",
+    "path": "uncc-station.jpg",
+    "alt": "image1",
+    "tags": ["architecture", "urban"]
+  },
+  {
+    "id": 25,
+    "name": "image21",
+    "caption": "image1",
+    "path": "walking-at-the-beach.jpg",
+    "alt": "image1",
+    "tags": ["landscape", "nature"]
+  },
+  {
+    "id": 26,
+    "name": "image21",
+    "caption": "image1",
+    "path": "white-flower.jpg",
+    "alt": "image1",
+    "tags": ["nature"]
   }
 ]

@@ -4,13 +4,41 @@ import photoData from "../data/photos.json";
 
 export interface Props {
   columns?: number;
+  selectedTags?: string[];
+  sortBy?: "name" | "tag" | "id";
 }
 
-const { columns = 4 } = Astro.props;
+const { columns = 4, selectedTags = [], sortBy = "name" } = Astro.props;
+
+// Filter by tags if provided
+let filteredPhotos =
+  selectedTags.length > 0
+    ? photoData.filter((item) =>
+        selectedTags.some((tag) => item.tags?.includes(tag))
+      )
+    : photoData;
+
+// Sort by selected method
+if (sortBy === "tag") {
+  filteredPhotos.sort((a, b) => {
+    const aTag = a.tags?.[0] || "";
+    const bTag = b.tags?.[0] || "";
+    return aTag.localeCompare(bTag);
+  });
+} else if (sortBy === "name") {
+  filteredPhotos.sort((a, b) => a.name.localeCompare(b.name));
+} else if (sortBy === "id") {
+  filteredPhotos.sort((a, b) => a.id - b.id);
+}
+
+// Get unique tags for reference
+const allTags = Array.from(
+  new Set(photoData.flatMap((item) => item.tags || []))
+).sort();
 ---
 
 <div class="gallery-grid" style={`--columns: ${columns}`}>
-  {photoData.map((item) => <GalleryItem {...item} />)}
+  {filteredPhotos.map((item) => <GalleryItem {...item} />)}
 </div>
 
 <div id="modal" class="modal">
@@ -138,8 +166,9 @@ const { columns = 4 } = Astro.props;
   const prevBtn = document.querySelector(".modal-prev");
   const nextBtn = document.querySelector(".modal-next");
 
-  function openModal(index) {
-    currentIndex = index;
+  function openModal(photoId) {
+    // Find the photo by ID in the full photoData array
+    currentIndex = photoData.findIndex((photo) => photo.id === photoId);
     updateModalContent();
     modal.classList.add("active");
     document.body.style.overflow = "hidden";
@@ -182,8 +211,9 @@ const { columns = 4 } = Astro.props;
   }
 
   // Event listeners
-  document.querySelectorAll(".gallery-item").forEach((item, index) => {
-    item.addEventListener("click", () => openModal(index));
+  document.querySelectorAll(".gallery-item").forEach((item) => {
+    const photoId = parseInt(item.getAttribute("data-image-id"), 10);
+    item.addEventListener("click", () => openModal(photoId));
   });
 
   closeBtn.addEventListener("click", closeModal);
