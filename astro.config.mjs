@@ -3,6 +3,6 @@ import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://Finn-Isler1.github.io",
-  base: "/",
+  site: "https://finn-isler1.github.io",
+  base: "/photo-portfolio/",
 });
