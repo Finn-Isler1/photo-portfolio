@@ -186,14 +186,14 @@ const allTags = Array.from(
 
       setTimeout(() => {
         const item = photoData[currentIndex];
-        modalImage.src = `src/photos/${item.path}`;
+        modalImage.src = `/photos/${item.path}`;
         modalImage.alt = item.alt;
         modalImage.classList.remove("fading");
         isTransitioning = false;
       }, 300);
     } else if (!fade) {
       const item = photoData[currentIndex];
-      modalImage.src = `src/photos/${item.path}`;
+      modalImage.src = `/photos/${item.path}`;
       modalImage.alt = item.alt;
     }
   }

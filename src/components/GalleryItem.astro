@@ -11,7 +11,7 @@ const { id, name, caption, alt, path, tags = [] } = Astro.props;
 ---
 
 <div class="gallery-item" data-image-id={id} data-tags={tags.join(",")}>
-  <img src={`src/photos/${path}`} alt={alt} loading="lazy" />
+  <img src={`/photos/${path}`} alt={alt} loading="lazy" />
   <div class="gallery-item-overlay"></div>
 </div>
 <style>
