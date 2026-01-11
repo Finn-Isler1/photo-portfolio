@@ -10,24 +10,12 @@ export interface Props {
 const { id, name, caption, alt, path, tags = [] } = Astro.props;
 ---
 
-<div class="gallery-item" data-image-id={id} data-tags={tags.join(",")}>
+<div
+  class="gallery-item"
+  data-image-id={id}
+  data-path={`/photos/${path}`}
+  data-tags={tags.join(",")}
+>
   <img src={`/photos/${path}`} alt={alt} loading="lazy" />
   <div class="gallery-item-overlay"></div>
 </div>
-<style>
-  .gallery-item {
-    position: relative;
-    cursor: pointer;
-    margin-bottom: 1rem;
-  }
-  .gallery-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: 0.3s ease;
-  }
-
-  .gallery-item:hover img {
-    opacity: 86%;
-  }
-</style>
