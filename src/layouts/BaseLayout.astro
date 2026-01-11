@@ -13,9 +13,28 @@ const { pageTitle } = Astro.props;
   <title>Finn Isler Photography + {pageTitle}</title>
 
   <body>
-    <Header />
-    <main><slot /></main>
+    <div class="page-wrapper">
+      <Header />
+      <main><slot /></main>
 
-    <Footer />
+      <Footer />
+    </div>
   </body>
 </html>
+<style is:global>
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+  }
+
+  .page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1;
+  }
+</style>
