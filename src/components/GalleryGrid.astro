@@ -4,13 +4,41 @@ import photoData from "../data/photos.json";
 
 export interface Props {
   columns?: number;
+  selectedTags?: string[];
+  sortBy?: "name" | "tag" | "id";
 }
 
-const { columns = 4 } = Astro.props;
+const { columns = 4, selectedTags = [], sortBy = "name" } = Astro.props;
+
+// Filter by tags if provided
+let filteredPhotos =
+  selectedTags.length > 0
+    ? photoData.filter((item) =>
+        selectedTags.some((tag) => item.tags?.includes(tag))
+      )
+    : photoData;
+
+// Sort by selected method
+if (sortBy === "tag") {
+  filteredPhotos.sort((a, b) => {
+    const aTag = a.tags?.[0] || "";
+    const bTag = b.tags?.[0] || "";
+    return aTag.localeCompare(bTag);
+  });
+} else if (sortBy === "name") {
+  filteredPhotos.sort((a, b) => a.name.localeCompare(b.name));
+} else if (sortBy === "id") {
+  filteredPhotos.sort((a, b) => a.id - b.id);
+}
+
+// Get unique tags for reference
+const allTags = Array.from(
+  new Set(photoData.flatMap((item) => item.tags || []))
+).sort();
 ---
 
-<div class="gallery-grid" style={`--columns: ${columns}`}>
-  {photoData.map((item) => <GalleryItem {...item} />)}
+<div class={`gallery-grid cols-${columns}`}>
+  {filteredPhotos.map((item) => <GalleryItem {...item} />)}
 </div>
 
 <div id="modal" class="modal">
@@ -127,80 +155,3 @@ const { columns = 4 } = Astro.props;
     right: 1rem;
   }
 </style>
-
-<script define:vars={{ photoData }}>
-  let currentIndex = 0;
-  let isTransitioning = false;
-
-  const modal = document.getElementById("modal");
-  const modalImage = document.getElementById("modal-image");
-  const closeBtn = document.querySelector(".modal-close");
-  const prevBtn = document.querySelector(".modal-prev");
-  const nextBtn = document.querySelector(".modal-next");
-
-  function openModal(index) {
-    currentIndex = index;
-    updateModalContent();
-    modal.classList.add("active");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeModal() {
-    modal.classList.remove("active");
-    document.body.style.overflow = "";
-  }
-
-  function updateModalContent(fade = false) {
-    if (fade && !isTransitioning) {
-      isTransitioning = true;
-      modalImage.classList.add("fading");
-
-      setTimeout(() => {
-        const item = photoData[currentIndex];
-        modalImage.src = `src/photos/${item.path}`;
-        modalImage.alt = item.alt;
-        modalImage.classList.remove("fading");
-        isTransitioning = false;
-      }, 300);
-    } else if (!fade) {
-      const item = photoData[currentIndex];
-      modalImage.src = `src/photos/${item.path}`;
-      modalImage.alt = item.alt;
-    }
-  }
-
-  function nextImage() {
-    if (isTransitioning) return;
-    currentIndex = (currentIndex + 1) % photoData.length;
-    updateModalContent(true);
-  }
-
-  function prevImage() {
-    if (isTransitioning) return;
-    currentIndex = (currentIndex - 1 + photoData.length) % photoData.length;
-    updateModalContent(true);
-  }
-
-  // Event listeners
-  document.querySelectorAll(".gallery-item").forEach((item, index) => {
-    item.addEventListener("click", () => openModal(index));
-  });
-
-  closeBtn.addEventListener("click", closeModal);
-  prevBtn.addEventListener("click", prevImage);
-  nextBtn.addEventListener("click", nextImage);
-
-  // Close modal on background click
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) closeModal();
-  });
-
-  // Keyboard navigation
-  document.addEventListener("keydown", (e) => {
-    if (!modal.classList.contains("active")) return;
-
-    if (e.key === "Escape") closeModal();
-    if (e.key === "ArrowLeft") prevImage();
-    if (e.key === "ArrowRight") nextImage();
-  });
-</script>

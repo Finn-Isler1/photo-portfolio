@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1,
+    "name": "video1",
+    "caption": "video1",
+    "path": "video1.mp4",
+    "alt": "video1",
+    "tags": ["test"]
+  }
+]
