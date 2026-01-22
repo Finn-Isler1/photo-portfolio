@@ -6,7 +6,7 @@ const pageTitle = "About Page";
 
 <BaseLayout pageTitle={pageTitle}>
   <div class="main-max-width container">
-    <img src="../assets/myself-picture.jpg" />
+    <img src={myselfPic.src} alt="Finn Isler" />
     <div class="text-wrapper">
       <h2>Finn Isler</h2>
       <p>
@@ -26,7 +26,7 @@ const pageTitle = "About Page";
   const contactButton = document.getElementById("contact-page");
   if (contactButton) {
     contactButton.addEventListener("click", () => {
-      window.location.href = "/contact";
+      window.location.href = "./contact";
     });
   }
 </script>
