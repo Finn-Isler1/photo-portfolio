@@ -35,7 +35,7 @@
     "id": 5,
     "name": "image21",
     "caption": "image1",
-    "path": "dillon1.JPG",
+    "path": "dillon1.jpg",
     "alt": "image1",
     "tags": ["portrait"]
   },
@@ -59,7 +59,7 @@
     "id": 8,
     "name": "image21",
     "caption": "image1",
-    "path": "horshoe-barn.JPG",
+    "path": "horshoe-barn.jpg",
     "alt": "image1",
     "tags": ["landscape", "architecture"]
   },
@@ -284,6 +284,30 @@
     "name": "image21",
     "caption": "image1",
     "path": "untitled-10.jpg",
+    "alt": "image1",
+    "tags": ["nature", "landscape"]
+  },
+  {
+    "id": 37,
+    "name": "image21",
+    "caption": "image1",
+    "path": "bridget-gold200-1.jpg",
+    "alt": "image1",
+    "tags": ["nature", "landscape"]
+  },
+  {
+    "id": 38,
+    "name": "image21",
+    "caption": "image1",
+    "path": "bridget-gold200-2.jpg",
+    "alt": "image1",
+    "tags": ["nature", "landscape"]
+  },
+  {
+    "id": 39,
+    "name": "image21",
+    "caption": "image1",
+    "path": "bfeet.jpg",
     "alt": "image1",
     "tags": ["nature", "landscape"]
   }

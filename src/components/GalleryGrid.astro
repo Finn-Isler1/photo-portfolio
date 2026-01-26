@@ -18,18 +18,12 @@ let filteredPhotos =
       )
     : photoData;
 
-// Sort by selected method
-if (sortBy === "tag") {
-  filteredPhotos.sort((a, b) => {
-    const aTag = a.tags?.[0] || "";
-    const bTag = b.tags?.[0] || "";
-    return aTag.localeCompare(bTag);
-  });
-} else if (sortBy === "name") {
-  filteredPhotos.sort((a, b) => a.name.localeCompare(b.name));
-} else if (sortBy === "id") {
-  filteredPhotos.sort((a, b) => a.id - b.id);
-}
+// sort by tag
+filteredPhotos.sort((a, b) => {
+  const aTag = a.tags?.[0] || "";
+  const bTag = b.tags?.[0] || "";
+  return aTag.localeCompare(bTag);
+});
 
 // Get unique tags for reference
 const allTags = Array.from(
