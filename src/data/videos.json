@@ -1,10 +1,9 @@
 [
   {
     "id": 1,
-    "name": "video1",
-    "caption": "video1",
+    "name": "MIDAS Fall 2026 Launch Party Fashion Show",
     "path": "video1.mp4",
-    "alt": "video1",
-    "tags": ["test"]
+    "thumbnail": "video1-thumb.jpg",
+    "alt": "alt text for MIDAS vid"
   }
 ]

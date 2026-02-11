@@ -1,0 +1,24 @@
+---
+export interface Props {
+  id: number;
+  name: string;
+  alt: string;
+  videoPath: string;
+  thumbnail: string;
+  
+}
+const { id, name, alt, videoPath, thumbnail } = Astro.props;
+---
+
+<div
+  class="video-item"
+  data-id={id}
+  data-name={name}
+  data-alt={alt}
+  data-path={videoPath}
+  data-thumbnail={thumbnail}
+>
+  <a href={`./videos/${path}`}
+    ><img src={`./videos/${thumbnail}`} alt={alt} loading="lazy" /></a
+  >
+</div>
