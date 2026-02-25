@@ -14,7 +14,7 @@ const { columns = 4, selectedTags = [], sortBy = "name" } = Astro.props;
 let filteredPhotos =
   selectedTags.length > 0
     ? photoData.filter((item) =>
-        selectedTags.some((tag) => item.tags?.includes(tag))
+        selectedTags.some((tag) => item.tags?.includes(tag)),
       )
     : photoData;
 
@@ -27,7 +27,7 @@ filteredPhotos.sort((a, b) => {
 
 // Get unique tags for reference
 const allTags = Array.from(
-  new Set(photoData.flatMap((item) => item.tags || []))
+  new Set(photoData.flatMap((item) => item.tags || [])),
 ).sort();
 ---
 
