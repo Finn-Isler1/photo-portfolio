@@ -1,17 +1,209 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import GalleryGrid from "../components/GalleryGrid.astro";
 const pageTitle = "Home Page";
+
+const imagePath = "src/assets/images/";
+
+function getPhoto(title: string) {
+  return `${imagePath}${title}.jpg`;
+}
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <section id="photo-projects">
-    <h2>Projects</h2>
-    <div>
-      
+  <div>
+    <section id="photo-projects">
+      <h2>Projects</h2>
+      <hr />
+
+      <div>
+        <h3>MIDAS Spring 2026 - 2000s</h3>
+        <div class="gallery-wrapper">
+          <div class="row">
+            <img src={getPhoto("2000s7")} alt="2000s3" />
+            <img src={getPhoto("2000s8")} alt="2000s4" />
+            <img src={getPhoto("2000s5")} alt="2000s1" />
+          </div>
+          <div class="row">
+            <img src={getPhoto("2000s2")} alt="2000s2" />
+            <img src={getPhoto("2000s6")} alt="2000s3" />
+            <img src={getPhoto("2000s4")} alt="2000s4" />
+          </div>
+          <div class="row">
+            <img src={getPhoto("2000s1")} alt="2000s5" />
+            <img src={getPhoto("2000s3")} alt="2000s6" />
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3>Midas Spring 2026 - SCENE</h3>
+        <div class="gallery-wrapper">
+          <div class="row">
+            <img src={getPhoto("scene18")} alt="scene1" />
+            <img src={getPhoto("scene15")} alt="scene1" />
+          </div>
+          <div class="row">
+            <img src={getPhoto("scene5")} alt="scene2" />
+            <img src={getPhoto("scene2")} alt="scene5" />
+            <img src={getPhoto("scene19")} alt="scene19" />
+          </div>
+          <div class="row">
+            <img src={getPhoto("scene12")} alt="scene2" />
+            <img src={getPhoto("scene13")} alt="scene3" />
+            <img src={getPhoto("scene14")} alt="scene4" />
+          </div>
+          <div class="row">
+            <img src={getPhoto("eyes1")} />
+            <img src={getPhoto("eyes2")} />
+            <img src={getPhoto("eyes3")} />
+          </div>
+          <div class="row">
+            <img src={getPhoto("scene17")} alt="scene1" />
+            <img src={getPhoto("scene1")} alt="scene1" />
+          </div>
+          <div class="row">
+            <img src={getPhoto("scene9")} alt="scene9" />
+            <img src={getPhoto("scene8")} alt="scene8" />
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3>MIDAS Fall 2025 - Fashion Show</h3>
+        <div class="gallery-wrapper">
+          <div class="row">
+            <img src={getPhoto("midas-fashion3")} alt="scene6" />
+            <img src={getPhoto("midas-fashion4")} alt="scene6" />
+          </div>
+          <div class="row">
+            <img src={getPhoto("midas-fashion1")} alt="scene6" />
+            <img src={getPhoto("midas-fashion2")} alt="scene6" />
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3></h3>
+      </div>
+    </section>
+    <section id="gallery">
+      <h2>Gallery</h2>
+      <hr />
+      <h3>People</h3>
+      <div class="gallery-wrapper">
+        <div class="row">
+          <img src={getPhoto("people5")} />
+          <img src={getPhoto("people10")} />
+          <img src={getPhoto("people11")} />
+        </div>
+        <div class="row">
+          <img src={getPhoto("people6")} />
+          <img src={getPhoto("people2")} />
+
+          <img src={getPhoto("people9")} />
+        </div>
+        <div class="row">
+          <img src={getPhoto("people7")} />
+          <img src={getPhoto("people8")} />
+        </div>
+      </div>
+
+      <h3>Landscape & Nature</h3>
+      <div class="gallery-wrapper">
+        <div class="row">
+          <img src={getPhoto("life5")} />
+          <img src={getPhoto("life25")} />
+        </div>
+        <div class="row">
+          <img src={getPhoto("life12")} />
+          <img src={getPhoto("life13")} />
+        </div>
+        <div class="row">
+          <img src={getPhoto("life21")} />
+        </div>
+      </div>
+
+      <h3>Warm Film</h3>
+      <div class="gallery-wrapper">
+        <div class="row">
+          <img src={getPhoto("life3")} />
+          <img src={getPhoto("life6")} />
+        </div>
+
+        <div class="row">
+          <img src={getPhoto("life11")} />
+          <img src={getPhoto("life31")} />
+          <img src={getPhoto("life32")} />
+        </div>
+      </div>
+    </section>
+    <h3>Street ISH</h3>
+    <div class="gallery-wrapper">
+      <div class="row">
+        <img src={getPhoto("life1")} />
+        <img src={getPhoto("life2")} />
+      </div>
+      <div class="row">
+        <img src={getPhoto("life4")} />
+        <img src={getPhoto("life8")} />
+      </div>
     </div>
-  </section>
-  <section id="photo-gallery">
-    <GalleryGrid sortBy="tag" selectedTags={["portrait", "landscape"]} />
-  </section>
+    <h3>Buildings</h3>
+    <div class="gallery-wrapper">
+      <div class="row">
+        <img src={getPhoto("building7")} />
+        <img src={getPhoto("building8")} />
+        <img src={getPhoto("building9")} />
+      </div>
+      <div class="row">
+        <img src={getPhoto("building2")} />
+        <img src={getPhoto("building6")} />
+      </div>
+      <div class="row">
+        <img src={getPhoto("building1")} />
+        <img src={getPhoto("building4")} />
+      </div>
+    </div>
+  </div>
+
+  <style>
+    /* MAIN PHOTO SECTION */
+
+    #photo-projects {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    h2 {
+      margin-top: 2rem;
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      font-weight: 200;
+    }
+
+    h3 {
+      font-family: var(--sans);
+      font-size: 1.5rem;
+      font-weight: 200;
+      display: flex;
+      justify-content: left;
+      margin: 2rem 0;
+    }
+
+    .gallery-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 2em;
+    }
+
+    .row {
+      display: flex;
+      gap: 20px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  </style>
 </BaseLayout>
