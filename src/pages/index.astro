@@ -223,5 +223,25 @@ function getPhoto(title: string) {
       width: 100%;
       height: auto;
     }
+
+    @media (max-width: 768px) {
+      .row {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .gallery-wrapper {
+        gap: 12px;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      h3 {
+        font-size: 1.2rem;
+        margin: 1.2rem 0;
+      }
+    }
   </style>
 </BaseLayout>
