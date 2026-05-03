@@ -18,11 +18,6 @@ const { pageTitle } = Astro.props;
   />
   <link rel="icon" href="/favicon.ico" />
   <title>Finn Isler Photography + {pageTitle}</title>
-  <link
-    rel="stylesheet"
-    href={import.meta.env.BASE_URL + "styles/gallery.css"}
-  />
-  <script src={import.meta.env.BASE_URL + "js/gallery.js"} defer></script>
 
   <body>
     <div class="page-wrapper">
@@ -35,18 +30,3 @@ const { pageTitle } = Astro.props;
     </div>
   </body>
 </html>
-
-<style>
-  .page-wrapper {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  main {
-    flex: 1;
-    margin: 0;
-  }
-</style>

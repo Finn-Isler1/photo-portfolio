@@ -1,12 +1,50 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Video Page";
+
+import VideoItem from "../components/VideoItem.astro";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <h2>Video</h2>
   <hr />
-  <div class="video-grid-container"></div>
+  <section id="demo-reel"></section>
+  <section id="video-projects">
+    <div class="video-container">
+      <a>
+        <img src="./src/assets/video-images/midas-we-can-do-it-thumbnail.png" alt="Midas We Can Do It Thumbnail" class="aspect-4-3">
+      </a>
+      <a href="">
+        <img src="./src/assets/video-images/midas-moc-thumbnail.png" alt="Midas MOC Thumbnail" class="aspect-4-3">
+      </a>
+      <a href="">
+        <img src="./src/assets/video-images/hair-and-makeup-thumbnail.png" alt="Robert Johnson Thumbnail" class="aspect-16-9">
+      </a>
+      
+      <a href="">
+        <img src="./src/assets/video-images/midas-s26-launch-thumbnail.png" alt="Hair and Makeup Thumbnail" class="aspect-16-9">
+      </a>
+      <a href="">
+        <img src="./src/assets/video-images/midas-eras-thumbnail.png" alt="Hair and Makeup Thumbnail" class="aspect-16-9">
+      </a>
+      <a href="">
+        <img src="./src/assets/video-images/midas-eras-thumbnail.png" alt="Hair and Makeup Thumbnail" class="aspect-16-9">
+      </a>
+      <a href="">
+        <img src="./src/assets/video-images/homestead-haunts-thumbnail.png" alt="Hair and Makeup Thumbnail" class="aspect-16-9">
+      </a>
+      <a href="">
+        <img src="./src/assets/video-images/striving-for-excellence-thumbnail.png" alt="Hair and Makeup Thumbnail" class="aspect-16-9">
+      </a>
+      <a href="">
+        <img src="./src/assets/video-images/magic-thumbnail.jpg" alt="Hair and Makeup Thumbnail" class="aspect-16-9">
+      </a>
+      
+
+      
+    </div>
+    
+  </section>
 </BaseLayout>
 
 <style>
@@ -16,4 +54,35 @@ const pageTitle = "Video Page";
     font-size: 2.5rem;
     font-weight: 200;
   }
+
+  .video-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  a {
+    display: block;
+    transition: opacity 0.3s ease;
+  }
+
+  a:hover {
+    opacity: 0.8;
+  }
+
+
+  /* IMAGE AR SIZING */
+
+  .aspect-4-3 {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .aspect-16-9 {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+
 </style>

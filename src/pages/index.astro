@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Home Page";
 
-const imagePath = "src/assets/images/";
+const imagePath = "./src/assets/images/";
 
 function getPhoto(title: string) {
   return `${imagePath}${title}.jpg`;
@@ -11,18 +11,54 @@ function getPhoto(title: string) {
 
 <BaseLayout pageTitle={pageTitle}>
   <div>
+    <section id="home-page-nav">
+      <nav>
+        <ul>
+          <li><a href="#photo-projects">Projects</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+      </nav>
+    </section>
     <section id="photo-projects">
       <h2>Projects</h2>
       <hr />
 
       <div>
-        <h3>=Cannonball Music Hall (4/11)</h3>
+        <h3>MIDAS Spring 2026 Launch Party</h3>
         <div class="gallery-wrapper">
           <div class="row">
-            <img src={getPhoto("cannonball1")} alt="cannonball1" />
-            <img src={getPhoto("cannonball2")} alt="cannonball2" />
-            <img src={getPhoto("cannonball3")} alt="cannonball3" />
+            <img src={getPhoto("Midas 2026 Launch-3")} alt="launch1" />
+            <img src={getPhoto("Midas 2026 Launch-4")} alt="launch2" />
+            <img src={getPhoto("Midas 2026 Launch-5")} alt="launch3" />
+          </div>
+          <div class="row">
+            <img src={getPhoto("Midas 2026 Launch-2")} alt="launch1" />
+            <img src={getPhoto("Midas 2026 Launch-6")} alt="launch2" />
+            <img src={getPhoto("Midas 2026 Launch-10")} alt="launch3" />
+          </div>
+          <div class="row">
+            <img src={getPhoto("Midas 2026 Launch")} alt="launch1" />
+            <img src={getPhoto("Midas 2026 Launch-8")} alt="launch3" />
+          </div>
+        </div>
+      </div>
+        
 
+      <div>
+        <h3>Cannonball Music Hall (4/11)</h3>
+        <div class="gallery-wrapper">
+          <div class="row">
+            <img src={getPhoto("Cannonball-1")} alt="cannonball1" />
+            <img src={getPhoto("Cannonball-3")} alt="cannonball2" />
+            <img src={getPhoto("Cannonball-6")} alt="cannonball3" />
+          </div>
+          <div class="row">
+            <img src={getPhoto("Cannonball-9")} alt="cannonball1" />
+            <img src={getPhoto("Cannonball-7")} alt="cannonball2" />
+          </div>
+          <div class="row">
+            <img src={getPhoto("Cannonball-5")} alt="cannonball1" />
+            <img src={getPhoto("Cannonball-4")} alt="cannonball2" />
           </div>
         </div>
         
@@ -159,9 +195,7 @@ function getPhoto(title: string) {
           <img src={getPhoto("building11")} />
         </div>
       </div>
-    </section>
-
-    <div class="gallery-wrapper">
+      <div class="gallery-wrapper">
       <div class="row">
         <img src={getPhoto("life1")} />
         <img src={getPhoto("life2")} />
@@ -189,9 +223,35 @@ function getPhoto(title: string) {
         <img src={getPhoto("building6")} />
       </div>
     </div>
+    </section>
+
+    
   </div>
+</BaseLayout>
 
   <style>
+    /* Section nav */
+
+    #home-page-nav {
+      margin: 2rem 0 0 0;
+    }
+
+    #home-page-nav nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #home-page-nav nav ul li a {
+      text-decoration: none;
+      color: var(--primary-text-color);
+      padding: .5rem 1.5rem;
+      outline: 1px solid var(--primary-text-color);
+    }
+
     /* MAIN PHOTO SECTION */
 
     #photo-projects {
@@ -202,7 +262,6 @@ function getPhoto(title: string) {
     }
 
     h2 {
-      margin-top: 2rem;
       font-family: var(--serif);
       font-size: 2.5rem;
       font-weight: 200;
@@ -230,8 +289,11 @@ function getPhoto(title: string) {
     }
 
     img {
+      flex: 1;
+      min-width: 0;
       width: 100%;
       height: auto;
+      object-fit: cover;
     }
 
     @media (max-width: 768px) {
@@ -254,4 +316,4 @@ function getPhoto(title: string) {
       }
     }
   </style>
-</BaseLayout>
+
