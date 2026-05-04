@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import myselfPic from '../assets/images/myself-picture.jpg';
 const pageTitle = 'About Page';
+const base = import.meta.env.BASE_URL || '/';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -28,7 +29,7 @@ const pageTitle = 'About Page';
   const contactButton = document.getElementById('contact-page');
   if (contactButton) {
     contactButton.addEventListener('click', () => {
-      window.location.href = './contact';
+      window.location.href = `${base}contact`;
     });
   }
 </script>
