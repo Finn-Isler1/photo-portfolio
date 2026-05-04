@@ -9,8 +9,8 @@
   --button-hover: rgb(239, 239, 239);
 
   /* TYPOGRAPHY */
-  --sans: "Arial", sans-serif;
-  --serif: "Times New Roman", serif;
+  --sans: 'Arial', sans-serif;
+  --serif: 'Times New Roman', serif;
 }
 
 /* global styles */

@@ -1,18 +1,19 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import myselfPic from "../assets/images/myself-picture.jpg";
-const pageTitle = "About Page";
+import BaseLayout from '../layouts/BaseLayout.astro';
+import myselfPic from '../assets/images/myself-picture.jpg';
+const pageTitle = 'About Page';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
+  <h2>About</h2>
+  <hr />
   <div class="main-max-width container">
     <img src={myselfPic.src} alt="Finn Isler" />
     <div class="text-wrapper">
-      <h2>Finn Isler</h2>
+      <h3>Finn Isler</h3>
       <p>
-        I am a photographer based in Charlotte, NC. I currently attend UNC
-        Charlotte. I enjoy taking photos of all things, including portraits,
-        landscapes, and architecture.
+        I am a photographer and videographer based in Charlotte, NC. I currently
+        attend UNC Charlotte, and plan to graduate in spring of 2026.
       </p>
       <p>
         Please feel free to reach out regarding work inquiries or general
@@ -24,15 +25,22 @@ const pageTitle = "About Page";
 </BaseLayout>
 
 <script>
-  const contactButton = document.getElementById("contact-page");
+  const contactButton = document.getElementById('contact-page');
   if (contactButton) {
-    contactButton.addEventListener("click", () => {
-      window.location.href = "./contact";
+    contactButton.addEventListener('click', () => {
+      window.location.href = './contact';
     });
   }
 </script>
 
 <style>
+  h2 {
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    font-weight: 200;
+    margin-top: 2rem;
+  }
+
   .container {
     display: flex;
     flex-direction: row;
@@ -57,7 +65,7 @@ const pageTitle = "About Page";
     max-width: 500px;
   }
 
-  h2 {
+  h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
   }
