@@ -4,5 +4,5 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://finn-isler1.github.io',
-  base: '/photo-portfolio/',
+  base: process.env.NODE_ENV === 'production' ? '/photo-portfolio/' : '/',
 });
