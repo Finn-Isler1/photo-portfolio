@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 const pageTitle = 'Home Page';
 
-const imagePath = './src/assets/images/';
+const imagePath = `${import.meta.env.BASE_URL}images/`;
 
 function getPhoto(title: string) {
   return `${imagePath}${title}.jpg`;
