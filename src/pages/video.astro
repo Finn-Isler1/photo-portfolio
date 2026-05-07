@@ -10,6 +10,7 @@ import VideoItem from '../components/VideoItem.astro';
   <hr />
 
   <section id="video-projects">
+    <h3>Demo Reel</h3>
     <!-- DEMO REEL -->
     <div
       class="demo-reel-container"
@@ -23,6 +24,7 @@ import VideoItem from '../components/VideoItem.astro';
       />
       <button class="play-button">Demo Reel</button>
     </div>
+    <h3>Fashion/Editorial</h3>
 
     <!-- VIDEO ITEMS -->
     <div class="video-container">
@@ -109,7 +111,23 @@ import VideoItem from '../components/VideoItem.astro';
           >Majestic Models Fashion Show - Spring 2026</span
         >
       </a>
+      <h3>Music Video</h3>
+      <a
+        class="video-item aspect-16-9"
+        href="#"
+        data-video-id="4H24PhT4Pz4"
+        aria-label="Play The Cardigans - Losers Unofficial Music Video"
+      >
+        <img
+          src={`${import.meta.env.BASE_URL}video-images/losers-thumbnail.png`}
+          alt="The Cardigans - Losers Unofficial Music Video Thumbnail"
+        />
+        <span class="play-button"
+          >The Cardigans - Losers Unofficial Music Video</span
+        >
+      </a>
 
+      <h3>Documentary</h3>
       <a
         class="video-item aspect-16-9"
         href="#"
@@ -157,6 +175,14 @@ import VideoItem from '../components/VideoItem.astro';
     font-family: var(--serif);
     font-size: 2.5rem;
     font-weight: 200;
+  }
+
+  h3 {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 200;
+    margin-top: 2rem;
+    text-align: center;
   }
 
   /* DEMO REEL */
@@ -227,6 +253,12 @@ import VideoItem from '../components/VideoItem.astro';
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
     margin: 2rem 0;
+  }
+
+  .video-container h3 {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin: 1rem 0 1rem 0;
   }
 
   @media (max-width: 640px) {

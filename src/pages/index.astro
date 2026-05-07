@@ -2,29 +2,55 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 const pageTitle = 'Home Page';
 
-const imagePath = `${import.meta.env.BASE_URL}images/`;
+function getPhoto(photoName: string) {
+  const base = import.meta.env.BASE_URL || '/';
+  return `${base}public/images/${photoName}.jpg`;
+}
 
-function getPhoto(title: string) {
-  return `${imagePath}${title}.jpg`;
+function getVideoPhoto(videoName: string) {
+  const base = import.meta.env.BASE_URL || '/';
+  return `${base}public/video-images/${videoName}.png`;
 }
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <div>
+    <button id="btn-back-to-top" title="Go to top">Top</button>
+    <!-- 
+    Home page nav
+    -->
     <section id="home-page-nav">
-      <nav>
-        <ul>
-          <li><a href="#photo-projects">Projects</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-        </ul>
+      <nav class="home-page-nav">
+        <a href="#fashion-editorial">
+          <p>Fashion/Editorial</p>
+          <img
+            src={getPhoto('Midas 2026 Launch-3')}
+            alt="Fashion/Editorial"
+          /></a
+        >
+        <a href="#concert"
+          ><img src={getPhoto('Cannonball-1')} alt="Concert" /><p>Concert</p></a
+        >
+        <a href="#life"
+          ><img src={getPhoto('people8')} alt="Life" /><p>Life</p></a
+        >
+        <a href="./video"
+          ><img src={getVideoPhoto('demo-reel-thumbnail')} alt="Video" /><p>
+            Video
+          </p></a
+        >
       </nav>
     </section>
-    <section id="photo-projects">
-      <h2>Photo</h2>
+
+    <!-- 
+    Fashion/Editorial
+    -->
+    <section id="fashion-editorial">
+      <h2>Fashion/Editorial</h2>
       <hr />
 
       <div>
-        <h3>MIDAS Spring 2026 Launch Party</h3>
+        <h3>Midas Spring 2026 - Launch Party</h3>
         <div class="gallery-wrapper">
           <div class="row">
             <img src={getPhoto('Midas 2026 Launch-3')} alt="launch1" />
@@ -44,43 +70,7 @@ function getPhoto(title: string) {
       </div>
 
       <div>
-        <h3>Cannonball Music Hall (4/11)</h3>
-        <div class="gallery-wrapper">
-          <div class="row">
-            <img src={getPhoto('Cannonball-1')} alt="cannonball1" />
-            <img src={getPhoto('Cannonball-3')} alt="cannonball2" />
-            <img src={getPhoto('Cannonball-6')} alt="cannonball3" />
-          </div>
-          <div class="row">
-            <img src={getPhoto('Cannonball-9')} alt="cannonball1" />
-            <img src={getPhoto('Cannonball-7')} alt="cannonball2" />
-          </div>
-          <div class="row">
-            <img src={getPhoto('Cannonball-5')} alt="cannonball1" />
-            <img src={getPhoto('Cannonball-4')} alt="cannonball2" />
-          </div>
-        </div>
-
-        <h3>MIDAS Spring 2026 - 2000s</h3>
-        <div class="gallery-wrapper">
-          <div class="row">
-            <img src={getPhoto('2000s7')} alt="2000s3" />
-            <img src={getPhoto('2000s8')} alt="2000s4" />
-            <img src={getPhoto('2000s5')} alt="2000s1" />
-          </div>
-          <div class="row">
-            <img src={getPhoto('2000s2')} alt="2000s2" />
-            <img src={getPhoto('2000s6')} alt="2000s3" />
-            <img src={getPhoto('2000s4')} alt="2000s4" />
-          </div>
-          <div class="row">
-            <img src={getPhoto('2000s1')} alt="2000s5" />
-            <img src={getPhoto('2000s3')} alt="2000s6" />
-          </div>
-        </div>
-      </div>
-      <div>
-        <h3>Midas Spring 2026 - SCENE</h3>
+        <h3>Midas Spring 2026 - "Scene"</h3>
         <div class="gallery-wrapper">
           <div class="row">
             <img src={getPhoto('scene18')} alt="scene1" />
@@ -111,8 +101,27 @@ function getPhoto(title: string) {
           </div>
         </div>
       </div>
+
+      <h3>Midas Spring 2026 - "2000s"</h3>
+      <div class="gallery-wrapper">
+        <div class="row">
+          <img src={getPhoto('2000s7')} alt="2000s3" />
+          <img src={getPhoto('2000s8')} alt="2000s4" />
+          <img src={getPhoto('2000s5')} alt="2000s1" />
+        </div>
+        <div class="row">
+          <img src={getPhoto('2000s2')} alt="2000s2" />
+          <img src={getPhoto('2000s6')} alt="2000s3" />
+          <img src={getPhoto('2000s4')} alt="2000s4" />
+        </div>
+        <div class="row">
+          <img src={getPhoto('2000s1')} alt="2000s5" />
+          <img src={getPhoto('2000s3')} alt="2000s6" />
+        </div>
+      </div>
+
       <div>
-        <h3>MIDAS Fall 2025 - Fashion Show</h3>
+        <h3>Midas Fall 2025 - Fashion Show</h3>
         <div class="gallery-wrapper">
           <div class="row">
             <img src={getPhoto('midas-fashion3')} alt="scene6" />
@@ -124,12 +133,37 @@ function getPhoto(title: string) {
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- 
+    Concert
+     -->
+    <section id="concert">
+      <h2>Concert</h2>
+      <hr />
+
       <div>
-        <h3></h3>
+        <h3>Cannonball Music Hall (4/11)</h3>
+        <div class="gallery-wrapper">
+          <div class="row">
+            <img src={getPhoto('Cannonball-1')} alt="cannonball1" />
+            <img src={getPhoto('Cannonball-3')} alt="cannonball2" />
+            <img src={getPhoto('Cannonball-6')} alt="cannonball3" />
+          </div>
+          <div class="row">
+            <img src={getPhoto('Cannonball-9')} alt="cannonball1" />
+            <img src={getPhoto('Cannonball-7')} alt="cannonball2" />
+          </div>
+          <div class="row">
+            <img src={getPhoto('Cannonball-5')} alt="cannonball1" />
+            <img src={getPhoto('Cannonball-4')} alt="cannonball2" />
+          </div>
+        </div>
       </div>
     </section>
-    <section id="gallery">
-      <h2>Gallery</h2>
+
+    <section id="life">
+      <h2>Life</h2>
       <hr />
 
       <div class="gallery-wrapper">
@@ -224,11 +258,69 @@ function getPhoto(title: string) {
   </div>
 </BaseLayout>
 
+<script>
+  let mybutton = document.getElementById('btn-back-to-top');
+
+  // Show button only after leaving the fashion-editorial section
+  const fashionSection = document.getElementById('fashion-editorial');
+
+  if (fashionSection) {
+    window.addEventListener('scroll', function () {
+      mybutton = document.getElementById('btn-back-to-top');
+      const sectionRect = fashionSection.getBoundingClientRect();
+
+      if (mybutton) {
+        // Show button if the section's top has scrolled above the viewport
+        if (sectionRect.top < 0) {
+          mybutton.style.display = 'block';
+        } else {
+          mybutton.style.display = 'none';
+        }
+      }
+    });
+  }
+
+  // Scroll to top when clicked
+  window.addEventListener('DOMContentLoaded', function () {
+    mybutton = document.getElementById('btn-back-to-top');
+    if (mybutton) {
+      mybutton.onclick = function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+    }
+  });
+</script>
+
 <style>
+  #btn-back-to-top {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    right: 50%;
+    transform: translateX(50%);
+    margin-top: 1.25rem;
+
+    outline: none;
+    border: none;
+
+    font-size: 1.05rem;
+    font-weight: 500;
+
+    color: var(--primary-text-color);
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    border-radius: 50px;
+    padding: 0.25rem 3rem;
+    cursor: pointer;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    z-index: 5;
+  }
   /* Section nav */
 
   #home-page-nav {
     margin: 2rem 0 0 0;
+    position: relative;
+    z-index: 10;
   }
 
   #home-page-nav nav ul {
@@ -247,6 +339,66 @@ function getPhoto(title: string) {
     outline: 1px solid var(--primary-text-color);
   }
 
+  /* HOME PAGE NAV */
+
+  .home-page-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 5rem 0;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .home-page-nav a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: -4px 4px 8px 1px rgba(97, 97, 97, 0.5);
+    flex: 1 1 0;
+    min-width: 150px;
+    aspect-ratio: 2 / 3;
+    overflow: hidden;
+  }
+
+  .home-page-nav a:hover img {
+    filter: brightness(75%);
+  }
+
+  .home-page-nav a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    display: block;
+  }
+
+  .home-page-nav a p {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(50%);
+    font-size: 1rem;
+    font-size: 2.5rem;
+    font-family: var(--serif);
+    font-weight: 500;
+    color: white;
+    /* outline: 1px solid var(--primary-text-color);
+    background-color: var(--background-color); */
+    padding: 0.25rem 1rem;
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+
+    white-space: nowrap;
+  }
+
+  .home-page-nav a:hover p {
+    opacity: 1;
+  }
+
   /* MAIN PHOTO SECTION */
 
   #photo-projects {
@@ -260,6 +412,11 @@ function getPhoto(title: string) {
     font-family: var(--serif);
     font-size: 2.5rem;
     font-weight: 200;
+    margin: 2rem 0 0.5rem 0;
+  }
+
+  h2:not(:first-child) {
+    margin-top: 4rem;
   }
 
   h3 {
@@ -269,6 +426,7 @@ function getPhoto(title: string) {
     display: flex;
     justify-content: left;
     margin: 2rem 0;
+    font-style: italic;
   }
 
   .gallery-wrapper {
