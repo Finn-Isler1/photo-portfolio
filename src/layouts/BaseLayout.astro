@@ -9,19 +9,21 @@ const { pageTitle } = Astro.props;
 ---
 
 <html lang="en">
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width" />
-  <meta name="generator" content={Astro.generator} />
-  <meta
-    http-equiv="Content-Security-Policy"
-    content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline'; frame-src https://www.youtube.com;"
-  />
-  <link rel="icon" href="/src/assets/favicon-32x32.png" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-  />
-  <title>Finn Isler Photography + {pageTitle}</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline'; frame-src https://www.youtube.com;"
+    />
+    <link rel="icon" href="/favicon-32x32.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Finn Isler Photography + {pageTitle}</title>
+  </head>
 
   <body>
     <div class="page-wrapper">
