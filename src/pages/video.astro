@@ -39,7 +39,7 @@ import VideoItem from '../components/VideoItem.astro';
           src={`${import.meta.env.BASE_URL}video-images/midas-editor-shoot--thumbnail.png`}
           alt="Robert Johnson Thumbnail"
         />
-        <span class="play-button">Midas Editor Shoot - Spring 2026</span>
+        <button class="play-button">Midas Editor Shoot - Spring 2026</button>
       </a>
       <a
         class="video-item aspect-16-9"
@@ -214,20 +214,24 @@ import VideoItem from '../components/VideoItem.astro';
   }
 
   .play-button {
+    color: var(--text);
+
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 0.5rem 1.25rem;
-    background: rgba(238, 238, 238, 0.8);
+
+    text-align: center;
+    padding: 0.25rem 0.5rem;
+
     border: 1px solid black;
-    font-size: 1.25em;
+    font-size: 1.35em;
     cursor: pointer;
     display: flex;
-    align-items: center;
     justify-content: center;
     opacity: 0;
     transition: all 0.1s ease;
+    z-index: 2;
   }
 
   .play-button:hover {
@@ -236,6 +240,26 @@ import VideoItem from '../components/VideoItem.astro';
 
   #youtube-container:hover .play-button {
     opacity: 1;
+  }
+
+  /* Ensure video-item buttons become visible on hover, focus, or on touch devices */
+  .video-item .play-button {
+    z-index: 2;
+  }
+
+  .video-item img {
+    z-index: 1;
+  }
+
+  .video-item:focus-within .play-button {
+    opacity: 1;
+  }
+
+  @media (hover: none) {
+    /* On touch devices, show play buttons by default */
+    .video-item .play-button {
+      opacity: 1;
+    }
   }
 
   /* THE ACTUAL DEMO REEL */
