@@ -10,11 +10,12 @@ function getPhoto(photoName: string) {
 function getVideoPhoto(videoName: string) {
   const base = import.meta.env.BASE_URL || '/';
 
-  try {
+  if (`${base}video-images/${videoName}.png`) {
     return `${base}video-images/${videoName}.png`;
-  } catch (error) {
-    console.error(`No PNG for ${videoName}:`, error);
+  } else if (`${base}video-images/${videoName}.jpg`) {
     return `${base}video-images/${videoName}.jpg`;
+  } else {
+    console.warn(`Thumbnail for video ${videoName} not found.`);
   }
 }
 ---
