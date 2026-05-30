@@ -9,7 +9,13 @@ function getPhoto(photoName: string) {
 
 function getVideoPhoto(videoName: string) {
   const base = import.meta.env.BASE_URL || '/';
-  return `${base}video-images/${videoName}.png`;
+
+  try {
+    return `${base}video-images/${videoName}.png`;
+  } catch (error) {
+    console.error(`No PNG for ${videoName}:`, error);
+    return `${base}video-images/${videoName}.jpg`;
+  }
 }
 ---
 
@@ -23,10 +29,7 @@ function getVideoPhoto(videoName: string) {
       <nav class="home-page-nav">
         <a href="#fashion-editorial">
           <p>Fashion/Editorial</p>
-          <img
-            src={getPhoto('midas2026Launch2')}
-            alt="Fashion/Editorial"
-          /></a
+          <img src={getPhoto('midas2026Launch2')} alt="Fashion/Editorial" /></a
         >
         <a href="#concert"
           ><img src={getPhoto('cannonball1')} alt="Concert" /><p>Concert</p></a
@@ -77,8 +80,8 @@ function getVideoPhoto(videoName: string) {
             <img src={getPhoto('scene15')} alt="scene1" />
           </div>
           <div class="row">
-            <img src={getPhoto('Scene5')} alt="scene2" />
-            <img src={getPhoto('Scene2')} alt="scene5" />
+            <img src={getPhoto('Scene2')} alt="scene2" />
+            <img src={getPhoto('Scene5')} alt="scene5" />
             <img src={getPhoto('scene19')} alt="scene19" />
           </div>
           <div class="row">
