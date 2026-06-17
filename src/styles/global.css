@@ -9,8 +9,8 @@
   --button-hover: rgb(239, 239, 239);
 
   /* TYPOGRAPHY */
-  --sans: "Arial", sans-serif;
-  --serif: "Times New Roman", serif;
+  --sans: 'Arial', sans-serif;
+  --serif: 'Times New Roman', serif;
 }
 
 /* global styles */
@@ -19,6 +19,10 @@ html,
 body {
   height: 100%;
   margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -40,6 +44,21 @@ main {
   flex-direction: column;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+@media (min-width: 1200px) {
+  main,
+  .page-wrapper {
+    max-width: 1500px;
+  }
+}
+
+@media (min-width: 1600px) {
+  main,
+  .page-wrapper {
+    max-width: 1800px;
+    padding: 0 5rem;
+  }
 }
 
 h1 {

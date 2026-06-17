@@ -1,12 +1,172 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-const pageTitle = "Video Page";
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = 'Video Page';
+
+import VideoItem from '../components/VideoItem.astro';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <h2>Video</h2>
   <hr />
-  <div class="video-grid-container"></div>
+
+  <section id="video-projects">
+    <h3>Demo Reel</h3>
+    <!-- DEMO REEL -->
+    <div
+      class="demo-reel-container"
+      id="youtube-container"
+      data-video-id="gP0Z2r86Y6s"
+    >
+      <img
+        src={`${import.meta.env.BASE_URL}video-images/demo-reel-thumbnail.png`}
+        alt="Demo Reel Thumbnail"
+        class="youtube-thumbnail"
+      />
+      <button class="play-button">Demo Reel</button>
+    </div>
+    <h3>Fashion/Editorial</h3>
+
+    <!-- VIDEO ITEMS -->
+    <div class="video-container">
+      <!-- Editor Shoot -->
+      <a
+        class="video-item aspect-16-9"
+        href="#"
+        data-video-id="-Tv3lUDc0as"
+        aria-label="Play Robert Johnson video"
+      >
+        <img
+          src={`${import.meta.env.BASE_URL}video-images/midas-editor-shoot--thumbnail.png`}
+          alt="Robert Johnson Thumbnail"
+        />
+        <button class="play-button">Midas Editor Shoot - Spring 2026</button>
+      </a>
+      <a
+        class="video-item aspect-16-9"
+        href="#"
+        data-video-id="8LiMfPnzu1Q"
+        aria-label="Play Homestead Haunts video"
+      >
+        <img
+          src={`${import.meta.env.BASE_URL}video-images/midas-eras-thumbnail.png`}
+          alt="Hair and Makeup Thumbnail"
+        />
+        <span class="play-button"
+          >Midas Through the Decades Promo - Spring 2026</span
+        >
+      </a>
+
+      <!-- Spring 2026 Launch -->
+      <a
+        class="video-item aspect-16-9"
+        href="#"
+        data-video-id="AcgQmqo8xlc"
+        aria-label="Play S26 launch video"
+      >
+        <img
+          src={`${import.meta.env.BASE_URL}video-images/midas-s26-launch-thumbnail.png`}
+          alt="Hair and Makeup Thumbnail"
+        />
+        <span class="play-button">Midas Launch - Spring 2026 </span>
+      </a>
+      <a
+        class="video-item aspect-16-9"
+        href="#"
+        data-video-id=""
+        aria-label="Play Homestead Haunts video"
+      >
+        <img
+          src={`${import.meta.env.BASE_URL}video-images/hair-and-makeup-thumbnail.png`}
+          alt="Hair and Makeup Thumbnail"
+        />
+        <span class="play-button"
+          >Midas Hair & Makeup Competition - Spring 2026</span
+        >
+      </a>
+      <!-- We Can Do It -->
+      <a
+        class="video-item aspect-4-3"
+        href="#"
+        data-video-id="MmlFGN0nKM4"
+        aria-label="Play Midas We Can Do It video"
+      >
+        <img
+          src={`${import.meta.env.BASE_URL}video-images/midas-we-can-do-it-thumbnail.png`}
+          alt="Midas We Can Do It Thumbnail"
+        />
+        <span class="play-button">Midas We Can Do It - Spring 2026</span>
+      </a>
+
+      <a
+        class="video-item aspect-4-3"
+        href="#"
+        data-video-id="H3256yJ9aII"
+        aria-label="Play Midas We Can Do It video"
+      >
+        <img
+          src={`${import.meta.env.BASE_URL}video-images/majestic-models-fashion-show-thumbnail.png`}
+          alt="Majestic Models Fashion Show Thumbnail"
+        />
+        <span class="play-button"
+          >Majestic Models Fashion Show - Spring 2026</span
+        >
+      </a>
+      <h3>Music Video</h3>
+      <a
+        class="video-item aspect-16-9"
+        href="#"
+        data-video-id="4H24PhT4Pz4"
+        aria-label="Play The Cardigans - Losers Unofficial Music Video"
+      >
+        <img
+          src={`${import.meta.env.BASE_URL}video-images/losers-thumbnail.png`}
+          alt="The Cardigans - Losers Unofficial Music Video Thumbnail"
+        />
+        <span class="play-button"
+          >The Cardigans - Losers Unofficial Music Video</span
+        >
+      </a>
+
+      <h3>Documentary</h3>
+      <a
+        class="video-item aspect-16-9"
+        href="#"
+        data-video-id="KxQZbfDe8LQ"
+        aria-label="Play eras video"
+      >
+        <img
+          src={`${import.meta.env.BASE_URL}video-images/striving-for-excellence-thumbnail.png`}
+          alt="Hair and Makeup Thumbnail"
+        />
+        <span class="play-button">Striving for Excellence Documentary</span>
+      </a>
+      <a
+        class="video-item aspect-16-9"
+        href="#"
+        data-video-id="e6UjDnwAVbY"
+        aria-label="Play eras video"
+      >
+        <img
+          src={`${import.meta.env.BASE_URL}video-images/homestead-haunts-thumbnail.png`}
+          alt="Hair and Makeup Thumbnail"
+        />
+        <span class="play-button">Homestead Haunts Documentary</span>
+      </a>
+      <!-- Midas MOC -->
+      <a
+        class="video-item aspect-4-3"
+        href="#"
+        data-video-id="meSZcZ2-fJg"
+        aria-label="Play Midas MOC video"
+      >
+        <img
+          src={`${import.meta.env.BASE_URL}video-images/midas-moc-thumbnail.png`}
+          alt="Midas MOC Thumbnail"
+        />
+        <span class="play-button">Midas Magazine Launch Moc - Spring 2026</span>
+      </a>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
@@ -16,4 +176,236 @@ const pageTitle = "Video Page";
     font-size: 2.5rem;
     font-weight: 200;
   }
+
+  h3 {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 200;
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  /* DEMO REEL */
+  /* YOUTUBE EMBED COVER UP */
+
+  #youtube-container {
+    margin: 2rem auto;
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    max-width: 1000px;
+    aspect-ratio: 16 / 9;
+  }
+
+  .youtube-thumbnail,
+  #youtube-container iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .youtube-thumbnail {
+    transition: opacity 0.3s ease;
+  }
+
+  #youtube-container:hover .youtube-thumbnail {
+    opacity: 0.8;
+  }
+
+  .play-button {
+    color: var(--text);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+    padding: 0.25rem 0.5rem;
+
+    border: 1px solid black;
+    font-size: 1.35em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.1s ease;
+    z-index: 2;
+  }
+
+  .play-button:hover {
+    background-color: rgba(238, 238, 238, 1);
+  }
+
+  #youtube-container:hover .play-button {
+    opacity: 1;
+  }
+
+  /* Ensure video-item buttons become visible on hover, focus, or on touch devices */
+  .video-item .play-button {
+    z-index: 2;
+  }
+
+  .video-item img {
+    z-index: 1;
+  }
+
+  .video-item:focus-within .play-button {
+    opacity: 1;
+  }
+
+  @media (hover: none) {
+    /* On touch devices, show play buttons by default */
+    .video-item .play-button {
+      opacity: 1;
+    }
+  }
+
+  /* THE ACTUAL DEMO REEL */
+
+  .demo-reel-container iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* VIDEO PROJECTS */
+
+  .video-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .video-container h3 {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin: 1rem 0 1rem 0;
+  }
+
+  @media (max-width: 640px) {
+    .video-container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .video-item {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: block;
+    cursor: pointer;
+  }
+
+  .video-item img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s ease;
+  }
+
+  .video-item .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0.5rem 1.25rem;
+    background: rgba(238, 238, 238, 0.8);
+    border: 1px solid black;
+    font-size: 1.25em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.1s ease;
+  }
+
+  .video-item:hover img {
+    opacity: 0.8;
+  }
+
+  .video-item:hover .play-button {
+    opacity: 1;
+  }
+
+  /* IMAGE AR SIZING */
+
+  .aspect-4-3 {
+    aspect-ratio: 4 / 3;
+  }
+
+  .aspect-16-9 {
+    aspect-ratio: 16 / 9;
+  }
 </style>
+
+<script>
+  const demoContainer = document.getElementById('youtube-container');
+  const videoItems = document.querySelectorAll<HTMLElement>('.video-item');
+
+  // Store original content for each video item and demo
+  const originalContents = new Map();
+  videoItems.forEach((item) => {
+    originalContents.set(item, item.innerHTML);
+  });
+  if (demoContainer) {
+    originalContents.set(demoContainer, demoContainer.innerHTML);
+  }
+
+  function createIframe(videoId: string) {
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&autoplay=1`;
+    iframe.title = 'Embedded video';
+    iframe.frameBorder = '0';
+    iframe.allow =
+      'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.display = 'block';
+    return iframe;
+  }
+
+  function resetToThumbnail(container: HTMLElement) {
+    const original = originalContents.get(container);
+    if (original) {
+      container.innerHTML = original;
+    }
+  }
+
+  function resetAllVideos(except?: HTMLElement) {
+    // Reset demo reel
+    if (demoContainer && demoContainer !== except) {
+      resetToThumbnail(demoContainer);
+    }
+    // Reset all video items
+    videoItems.forEach((item) => {
+      if (item !== except) {
+        resetToThumbnail(item);
+      }
+    });
+  }
+
+  demoContainer?.addEventListener('click', () => {
+    const videoId = demoContainer.dataset.videoId;
+    if (!videoId) return;
+    resetAllVideos(demoContainer);
+    demoContainer.replaceChildren(createIframe(videoId));
+  });
+
+  videoItems.forEach((item) => {
+    item.addEventListener('click', (event) => {
+      event.preventDefault();
+      const videoId = item.dataset.videoId;
+      if (!videoId) return;
+      resetAllVideos(item);
+      item.replaceChildren(createIframe(videoId));
+    });
+  });
+</script>

@@ -1,18 +1,29 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import myselfPic from "../assets/images/myself-picture.jpg";
-const pageTitle = "About Page";
+import BaseLayout from '../layouts/BaseLayout.astro';
+import myselfPic from '../assets/images/myself-picture.jpg';
+const pageTitle = 'About Page';
+const base = import.meta.env.BASE_URL || '/';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
+  <h2>About</h2>
+  <hr />
   <div class="main-max-width container">
     <img src={myselfPic.src} alt="Finn Isler" />
     <div class="text-wrapper">
-      <h2>Finn Isler</h2>
+      <h3>Finn Isler</h3>
       <p>
-        I am a photographer based in Charlotte, NC. I currently attend UNC
-        Charlotte. I enjoy taking photos of all things, including portraits,
-        landscapes, and architecture.
+        I am a photographer and videographer based in Charlotte/Raleigh, NC. I
+        went to school at UNC Charlotte and graduated in May of 2026.
+      </p>
+      <p>
+        During my time there, I learned to shoot and edit photo and video for a
+        variety of different projects, including fashion, editorial,
+        documentary, and music video.
+      </p>
+      <p>
+        One thing to know about me that I am extremely open-minded and always
+        interested.
       </p>
       <p>
         Please feel free to reach out regarding work inquiries or general
@@ -24,15 +35,24 @@ const pageTitle = "About Page";
 </BaseLayout>
 
 <script>
-  const contactButton = document.getElementById("contact-page");
+  import { base } from 'astro:config/client';
+
+  const contactButton = document.getElementById('contact-page');
   if (contactButton) {
-    contactButton.addEventListener("click", () => {
-      window.location.href = "./contact";
+    contactButton.addEventListener('click', () => {
+      window.location.href = `${base}contact`;
     });
   }
 </script>
 
 <style>
+  h2 {
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    font-weight: 200;
+    margin-top: 2rem;
+  }
+
   .container {
     display: flex;
     flex-direction: row;
@@ -54,12 +74,15 @@ const pageTitle = "About Page";
     gap: 12px;
     padding: 2em 2em;
     align-items: center;
-    max-width: 500px;
+    max-width: 400px;
   }
 
-  h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+  h3 {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 200;
+    margin-top: 2rem;
+    text-align: center;
   }
 
   p {

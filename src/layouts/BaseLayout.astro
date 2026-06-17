@@ -1,28 +1,30 @@
 ---
 // CSS imports
-import "../styles/global.css";
-import "../styles/reset.css";
+import '../styles/global.css';
+import '../styles/reset.css';
 
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 const { pageTitle } = Astro.props;
+const base = import.meta.env.BASE_URL || '/';
 ---
 
 <html lang="en">
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width" />
-  <meta name="generator" content={Astro.generator} />
-  <meta
-    http-equiv="Content-Security-Policy"
-    content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';"
-  />
-  <link rel="icon" href="/favicon.ico" />
-  <title>Finn Isler Photography + {pageTitle}</title>
-  <link
-    rel="stylesheet"
-    href={import.meta.env.BASE_URL + "styles/gallery.css"}
-  />
-  <script src={import.meta.env.BASE_URL + "js/gallery.js"} defer></script>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline'; frame-src https://www.youtube.com;"
+    />
+    <link rel="icon" href={`${base}favicon-32x32.png`} />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Finn Isler Photography + {pageTitle}</title>
+  </head>
 
   <body>
     <div class="page-wrapper">
@@ -35,18 +37,3 @@ const { pageTitle } = Astro.props;
     </div>
   </body>
 </html>
-
-<style>
-  .page-wrapper {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  main {
-    flex: 1;
-    margin: 0;
-  }
-</style>

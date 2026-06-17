@@ -5,8 +5,9 @@ export interface Props {
   alt: string;
   videoPath: string;
   thumbnail: string;
+  path: string;
 }
-const { id, name, alt, videoPath, thumbnail } = Astro.props;
+const { id, name, alt, path, thumbnail } = Astro.props;
 ---
 
 <div
@@ -14,10 +15,10 @@ const { id, name, alt, videoPath, thumbnail } = Astro.props;
   data-id={id}
   data-name={name}
   data-alt={alt}
-  data-path={videoPath}
+  data-path={path}
   data-thumbnail={thumbnail}
 >
-  <a href={`./videos/${path}`}
-    ><img src={`./videos/${thumbnail}`} alt={alt} loading="lazy" /></a
-  >
+  <a href={`./videos/${path}`}>
+    <img src={`./videos/${thumbnail}`} alt={alt} loading="lazy" />
+  </a>
 </div>

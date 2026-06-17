@@ -1,197 +1,413 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-const pageTitle = "Home Page";
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = 'Home Page';
 
-const imagePath = "src/assets/images/";
+function getPhoto(photoName: string) {
+  const base = import.meta.env.BASE_URL || '/';
+  return `${base}images/${photoName}.jpg`;
+}
 
-function getPhoto(title: string) {
-  return `${imagePath}${title}.jpg`;
+function getVideoPhoto(videoName: string) {
+  const base = import.meta.env.BASE_URL || '/';
+
+  if (`${base}video-images/${videoName}.png`) {
+    return `${base}video-images/${videoName}.png`;
+  } else if (`${base}video-images/${videoName}.jpg`) {
+    return `${base}video-images/${videoName}.jpg`;
+  } else {
+    console.warn(`Thumbnail for video ${videoName} not found.`);
+  }
 }
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <div>
-    <section id="photo-projects">
-      <h2>Projects</h2>
-      <hr />
-
-      <div>
-        <!-- <h3>=Cannonball Music Hall (4/11)</h3>
-        <div class="gallery-wrapper">
-          <div class="row">
-            <img src={getPhoto("cannonball1")} alt="cannonball1" />
-            <img src={getPhoto("cannonball2")} alt="cannonball2" />
-            <img src={getPhoto("cannonball3")} alt="cannonball3" />
-
-          </div>
-        </div> -->
-
-        <h3>MIDAS Spring 2026 - 2000s</h3>
-        <div class="gallery-wrapper">
-          <div class="row">
-            <img src={getPhoto("2000s7")} alt="2000s3" />
-            <img src={getPhoto("2000s8")} alt="2000s4" />
-            <img src={getPhoto("2000s5")} alt="2000s1" />
-          </div>
-          <div class="row">
-            <img src={getPhoto("2000s2")} alt="2000s2" />
-            <img src={getPhoto("2000s6")} alt="2000s3" />
-            <img src={getPhoto("2000s4")} alt="2000s4" />
-          </div>
-          <div class="row">
-            <img src={getPhoto("2000s1")} alt="2000s5" />
-            <img src={getPhoto("2000s3")} alt="2000s6" />
-          </div>
-        </div>
-      </div>
-      <div>
-        <h3>Midas Spring 2026 - SCENE</h3>
-        <div class="gallery-wrapper">
-          <div class="row">
-            <img src={getPhoto("scene18")} alt="scene1" />
-            <img src={getPhoto("scene15")} alt="scene1" />
-          </div>
-          <div class="row">
-            <img src={getPhoto("scene5")} alt="scene2" />
-            <img src={getPhoto("scene2")} alt="scene5" />
-            <img src={getPhoto("scene19")} alt="scene19" />
-          </div>
-          <div class="row">
-            <img src={getPhoto("scene12")} alt="scene2" />
-            <img src={getPhoto("scene13")} alt="scene3" />
-            <img src={getPhoto("scene14")} alt="scene4" />
-          </div>
-          <div class="row">
-            <img src={getPhoto("eyes1")} />
-            <img src={getPhoto("eyes2")} />
-            <img src={getPhoto("eyes3")} />
-          </div>
-          <div class="row">
-            <img src={getPhoto("scene17")} alt="scene1" />
-            <img src={getPhoto("scene1")} alt="scene1" />
-          </div>
-          <div class="row">
-            <img src={getPhoto("scene9")} alt="scene9" />
-            <img src={getPhoto("scene8")} alt="scene8" />
-          </div>
-        </div>
-      </div>
-      <div>
-        <h3>MIDAS Fall 2025 - Fashion Show</h3>
-        <div class="gallery-wrapper">
-          <div class="row">
-            <img src={getPhoto("midas-fashion3")} alt="scene6" />
-            <img src={getPhoto("midas-fashion4")} alt="scene6" />
-          </div>
-          <div class="row">
-            <img src={getPhoto("midas-fashion1")} alt="scene6" />
-            <img src={getPhoto("midas-fashion2")} alt="scene6" />
-          </div>
-        </div>
-      </div>
-      <div>
-        <h3></h3>
-      </div>
+    <button id="btn-back-to-top" title="Go to top">Top</button>
+    <!-- 
+    Home page nav
+    -->
+    <section id="home-page-nav">
+      <nav class="home-page-nav">
+        <a href="#fashion-editorial">
+          <p>Fashion/Editorial</p>
+          <img src={getPhoto('midas2026Launch2')} alt="Fashion/Editorial" /></a
+        >
+        <a href="#concert"
+          ><img src={getPhoto('cannonball1')} alt="Concert" /><p>Concert</p></a
+        >
+        <a href="#life"
+          ><img src={getPhoto('people8')} alt="Life" /><p>Life</p></a
+        >
+        <a href="./video"
+          ><img src={getVideoPhoto('demo-reel-thumbnail')} alt="Video" /><p>
+            Video
+          </p></a
+        >
+      </nav>
     </section>
-    <section id="gallery">
-      <h2>Gallery</h2>
+
+    <!-- 
+    Fashion/Editorial
+    -->
+    <section id="fashion-editorial">
+      <h2>Fashion/Editorial</h2>
       <hr />
-      <h3>People</h3>
-      <div class="gallery-wrapper">
-        <div class="row">
-          <img src={getPhoto("people5")} />
-          <img src={getPhoto("people10")} />
-          <img src={getPhoto("people11")} />
-        </div>
-        <div class="row">
-          <img src={getPhoto("people6")} />
-          <img src={getPhoto("people2")} />
-          <img src={getPhoto("people9")} />
-        </div>
-        <div class="row">
-          <img src={getPhoto("people7")} />
-          <img src={getPhoto("people8")} />
+
+      <div>
+        <h3>Midas Spring 2026 - Launch Party</h3>
+        <div class="gallery-wrapper">
+          <div class="row">
+            <img src={getPhoto('midas2026Launch2')} alt="launch1" />
+            <img src={getPhoto('midas2026Launch3')} alt="launch2" />
+            <img src={getPhoto('midas2026Launch4')} alt="launch3" />
+          </div>
+          <div class="row">
+            <img src={getPhoto('midas2026Launch5')} alt="launch1" />
+            <img src={getPhoto('midas2026Launch6')} alt="launch2" />
+            <img src={getPhoto('midas2026Launch10')} alt="launch3" />
+          </div>
+          <div class="row">
+            <img src={getPhoto('midas2026Launch11')} alt="launch1" />
+            <img src={getPhoto('midas2026Launch8')} alt="launch3" />
+          </div>
         </div>
       </div>
 
-      <h3>Landscape & Nature</h3>
-      <div class="gallery-wrapper">
-        <div class="row">
-          <img src={getPhoto("life5")} />
-          <img src={getPhoto("life25")} />
-        </div>
-        <div class="row">
-          <img src={getPhoto("life12")} />
-          <img src={getPhoto("life13")} />
-        </div>
-        <div class="row">
-          <img src={getPhoto("life21")} />
+      <div>
+        <h3>Midas Spring 2026 - "Scene"</h3>
+        <div class="gallery-wrapper">
+          <div class="row">
+            <img src={getPhoto('scene18')} alt="scene1" />
+            <img src={getPhoto('scene15')} alt="scene1" />
+          </div>
+          <div class="row">
+            <img src={getPhoto('Scene2')} alt="scene2" />
+            <img src={getPhoto('Scene5')} alt="scene5" />
+            <img src={getPhoto('scene19')} alt="scene19" />
+          </div>
+          <div class="row">
+            <img src={getPhoto('Scene12')} alt="scene2" />
+            <img src={getPhoto('Scene13')} alt="scene3" />
+            <img src={getPhoto('Scene14')} alt="scene4" />
+          </div>
+          <div class="row">
+            <img src={getPhoto('Export1-66')} alt="scene7" />
+            <img src={getPhoto('Export1-65')} alt="scene6" />
+            <img src={getPhoto('Export1-63')} alt="scene5" />
+          </div>
+          <div class="row">
+            <img src={getPhoto('eyes1')} />
+            <img src={getPhoto('eyes2')} />
+            <img src={getPhoto('eyes3')} />
+          </div>
+          <div class="row">
+            <img src={getPhoto('scene17')} alt="scene1" />
+            <img src={getPhoto('Scene1')} alt="scene1" />
+          </div>
+          <div class="row">
+            <img src={getPhoto('Scene9')} alt="scene9" />
+            <img src={getPhoto('Scene8')} alt="scene8" />
+          </div>
         </div>
       </div>
 
-      <h3>Warm Film</h3>
       <div class="gallery-wrapper">
+        <h3>Midas Spring 2026 - "2000s"</h3>
         <div class="row">
-          <img src={getPhoto("life3")} />
-          <img src={getPhoto("life6")} />
+          <img src={getPhoto('2000s7')} alt="2000s3" />
+          <img src={getPhoto('2000s8')} alt="2000s4" />
+          <img src={getPhoto('2000s5')} alt="2000s1" />
         </div>
+        <div class="row">
+          <img src={getPhoto('2000s2')} alt="2000s2" />
+          <img src={getPhoto('2000s6')} alt="2000s3" />
+          <img src={getPhoto('2000s4')} alt="2000s4" />
+        </div>
+        <div class="row">
+          <img src={getPhoto('2000s1')} alt="2000s5" />
+          <img src={getPhoto('2000s3')} alt="2000s6" />
+        </div>
+      </div>
 
-        <div class="row">
-          <img src={getPhoto("life11")} />
-          <img src={getPhoto("life31")} />
-          <img src={getPhoto("life32")} />
-        </div>
-        <div class="row">
-          <img src={getPhoto("life22")} />
-          <img src={getPhoto("life17")} />
-          <img src={getPhoto("life23")} />
-        </div>
-        <div class="row">
-          <img src={getPhoto("life7")} />
-          <img src={getPhoto("life9")} />
-        </div>
-        <div class="row">
-          <img src={getPhoto("life36")} />
-          <img src={getPhoto("life37")} />
-        </div>
-        <div class="row">
-          <img src={getPhoto("building10")} />
-          <img src={getPhoto("building11")} />
+      <div>
+        <h3>Midas Fall 2025 - Fashion Show</h3>
+        <div class="gallery-wrapper">
+          <div class="row">
+            <img src={getPhoto('fall-fashion-show3')} alt="scene6" />
+            <img src={getPhoto('fall-fashion-show4')} alt="scene6" />
+          </div>
+          <div class="row">
+            <img src={getPhoto('fall-fashion-show1')} alt="scene6" />
+            <img src={getPhoto('fall-fashion-show2')} alt="scene6" />
+          </div>
         </div>
       </div>
     </section>
 
-    <div class="gallery-wrapper">
-      <div class="row">
-        <img src={getPhoto("life1")} />
-        <img src={getPhoto("life2")} />
-      </div>
-      <div class="row">
-        <img src={getPhoto("life4")} />
-        <img src={getPhoto("life8")} />
-      </div>
-    </div>
-    <h3>Buildings</h3>
-    <div class="gallery-wrapper">
-      <div class="row">
-        <img src={getPhoto("building7")} />
-        <img src={getPhoto("building8")} />
-        <img src={getPhoto("building9")} />
-      </div>
+    <!-- 
+    Concert
+     -->
+    <section id="concert">
+      <h2>Concert</h2>
+      <hr />
 
-      <div class="row">
-        <img src={getPhoto("building4")} />
-        <img src={getPhoto("building5")} />
-        <img src={getPhoto("building1")} />
+      <div>
+        <h3>Cannonball Music Hall (4/11)</h3>
+        <div class="gallery-wrapper">
+          <div class="row">
+            <img src={getPhoto('cannonball1')} alt="cannonball1" />
+            <img src={getPhoto('cannonball3')} alt="cannonball2" />
+            <img src={getPhoto('cannonball6')} alt="cannonball3" />
+          </div>
+          <div class="row">
+            <img src={getPhoto('cannonball9')} alt="cannonball1" />
+            <img src={getPhoto('cannonball7')} alt="cannonball2" />
+          </div>
+          <div class="row">
+            <img src={getPhoto('cannonball5')} alt="cannonball1" />
+            <img src={getPhoto('cannonball4')} alt="cannonball2" />
+          </div>
+        </div>
       </div>
-      <div class="row">
-        <img src={getPhoto("building2")} />
-        <img src={getPhoto("building6")} />
+    </section>
+
+    <section id="life">
+      <h2>Life</h2>
+      <hr />
+
+      <div class="gallery-wrapper">
+        <div class="row">
+          <img src={getPhoto('people5')} />
+          <img src={getPhoto('people10')} />
+          <img src={getPhoto('people11')} />
+        </div>
+        <div class="row">
+          <img src={getPhoto('people6')} />
+          <img src={getPhoto('people2')} />
+          <img src={getPhoto('people9')} />
+        </div>
+        <div class="row">
+          <img src={getPhoto('people7')} />
+          <img src={getPhoto('people8')} />
+        </div>
+
+        <div class="row">
+          <img src={getPhoto('Life5')} />
+          <img src={getPhoto('life25')} />
+        </div>
+        <div class="row">
+          <img src={getPhoto('life12')} />
+          <img src={getPhoto('life13')} />
+        </div>
+        <div class="row">
+          <img src={getPhoto('life21')} />
+        </div>
+
+        <div class="row">
+          <img src={getPhoto('life3')} />
+          <img src={getPhoto('life6')} />
+        </div>
+
+        <div class="row">
+          <img src={getPhoto('life11')} />
+          <img src={getPhoto('life31')} />
+          <img src={getPhoto('life32')} />
+        </div>
+        <div class="row">
+          <img src={getPhoto('life22')} />
+          <img src={getPhoto('life17')} />
+          <img src={getPhoto('life23')} />
+        </div>
+        <div class="row">
+          <img src={getPhoto('life7')} />
+          <img src={getPhoto('life9')} />
+        </div>
+        <div class="row">
+          <img src={getPhoto('life36')} />
+          <img src={getPhoto('life37')} />
+        </div>
+        <div class="row">
+          <img src={getPhoto('building10')} />
+          <img src={getPhoto('building11')} />
+        </div>
+        <div class="row">
+          <img src={getPhoto('nCampus1')} />
+          <img src={getPhoto('nCampus4')} />
+          <img src={getPhoto('nCampus3')} />
+        </div>
+        <div class="row">
+          <img src={getPhoto('nCampus2')} />
+          <img src={getPhoto('nCampus5')} />
+        </div>
+        <div class="row">
+          <img src={getPhoto('Life1')} />
+          <img src={getPhoto('Life2')} />
+        </div>
+        <div class="row">
+          <img src={getPhoto('Life4')} />
+          <img src={getPhoto('life8')} />
+        </div>
+
+        <div class="row">
+          <img src={getPhoto('building7')} />
+          <img src={getPhoto('building8')} />
+          <img src={getPhoto('building9')} />
+        </div>
+
+        <div class="row">
+          <img src={getPhoto('building4')} />
+          <img src={getPhoto('building5')} />
+          <img src={getPhoto('building1')} />
+        </div>
+        <div class="row">
+          <img src={getPhoto('building2')} />
+          <img src={getPhoto('building6')} />
+        </div>
       </div>
-    </div>
+    </section>
   </div>
 
+  <script>
+    let mybutton = document.getElementById('btn-back-to-top');
+
+    // Show button only after leaving the fashion-editorial section
+    const fashionSection = document.getElementById('fashion-editorial');
+
+    if (fashionSection) {
+      window.addEventListener('scroll', function () {
+        mybutton = document.getElementById('btn-back-to-top');
+        const sectionRect = fashionSection.getBoundingClientRect();
+
+        if (mybutton) {
+          // Show button if the section's top has scrolled above the viewport
+          if (sectionRect.top < 0) {
+            mybutton.style.display = 'block';
+          } else {
+            mybutton.style.display = 'none';
+          }
+        }
+      });
+    }
+
+    // Scroll to top when clicked
+    window.addEventListener('DOMContentLoaded', function () {
+      mybutton = document.getElementById('btn-back-to-top');
+      if (mybutton) {
+        mybutton.onclick = function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+      }
+    });
+  </script>
+
   <style>
+    #btn-back-to-top {
+      display: none; /* Hidden by default */
+      position: fixed;
+      top: 0;
+      right: 50%;
+      transform: translateX(50%);
+      margin-top: 1.25rem;
+
+      outline: none;
+      border: none;
+
+      font-size: 1.05rem;
+      font-weight: 500;
+
+      color: var(--primary-text-color);
+      background-color: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 50px;
+      padding: 0.25rem 3rem;
+      cursor: pointer;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+      z-index: 5;
+    }
+    /* Section nav */
+
+    #home-page-nav {
+      margin: 2rem 0 0 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    #home-page-nav nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #home-page-nav nav ul li a {
+      text-decoration: none;
+      color: var(--primary-text-color);
+      padding: 0.5rem 1.5rem;
+      outline: 1px solid var(--primary-text-color);
+    }
+
+    /* HOME PAGE NAV */
+
+    .home-page-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin: 5rem 0;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .home-page-nav a {
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      box-shadow: -4px 4px 8px 1px rgba(97, 97, 97, 0.5);
+      flex: 1 1 0;
+      min-width: 150px;
+      aspect-ratio: 2 / 3;
+      overflow: hidden;
+    }
+
+    .home-page-nav a:hover img {
+      filter: brightness(75%);
+    }
+
+    .home-page-nav a img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      display: block;
+    }
+
+    .home-page-nav a p {
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(50%);
+      font-size: 1rem;
+      font-size: 2.5rem;
+      font-family: var(--serif);
+      font-weight: 500;
+      color: white;
+      /* outline: 1px solid var(--primary-text-color);
+    background-color: var(--background-color); */
+      padding: 0.25rem 1rem;
+
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 10;
+
+      white-space: nowrap;
+    }
+
+    .home-page-nav a:hover p {
+      opacity: 1;
+    }
+
     /* MAIN PHOTO SECTION */
 
     #photo-projects {
@@ -202,10 +418,14 @@ function getPhoto(title: string) {
     }
 
     h2 {
-      margin-top: 2rem;
       font-family: var(--serif);
       font-size: 2.5rem;
       font-weight: 200;
+      margin: 2rem 0 0.5rem 0;
+    }
+
+    h2:not(:first-child) {
+      margin-top: 4rem;
     }
 
     h3 {
@@ -215,6 +435,7 @@ function getPhoto(title: string) {
       display: flex;
       justify-content: left;
       margin: 2rem 0;
+      font-style: italic;
     }
 
     .gallery-wrapper {
@@ -230,8 +451,11 @@ function getPhoto(title: string) {
     }
 
     img {
+      flex: 1;
+      min-width: 0;
       width: 100%;
       height: auto;
+      object-fit: cover;
     }
 
     @media (max-width: 768px) {
